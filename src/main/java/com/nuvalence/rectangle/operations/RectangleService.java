@@ -2,6 +2,9 @@ package com.nuvalence.rectangle.operations;
 
 
 public class RectangleService {
+    public static String get(){
+        return "Hello";
+    }
 
     public static void main(String[] args) {
         Rectangle staticRectangle = new Rectangle(new Point(1.0, 1.0), new Point(5.0, 3.0));

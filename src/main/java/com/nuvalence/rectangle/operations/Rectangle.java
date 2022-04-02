@@ -2,118 +2,152 @@ package com.nuvalence.rectangle.operations;
 
 
 import java.util.Objects;
+import java.util.logging.Logger;
 
 public class Rectangle {
+
+    private static final Logger logger = Logger.getLogger(Rectangle.class.getName());
     private final Point bottomLeft;
     private final Point topRight;
     private final Point bottomRight;
     private final Point topLeft;
+    private final Line topLine;
+    private final Line bottomLine;
+    private final Line rightLine;
+    private final Line leftLine;
 
     public Rectangle(Point bottomLeft, Point topRight) {
         this.bottomLeft = bottomLeft;
         this.topRight = topRight;
-        if (Double.isNaN(this.bottomLeft.getX()) || Double.isNaN(this.topRight.getX()))
-            throw new IllegalArgumentException("x-coordinate cannot be z");
-        if (Double.isNaN(this.bottomLeft.getY()) || Double.isNaN(this.topRight.getY()))
-            throw new IllegalArgumentException("y-coordinates cannot be NaN");
-        if (this.topRight.getX() < this.bottomLeft.getX() || this.topRight.getY() < this.bottomLeft.getY()) {
-            throw new IllegalArgumentException("Invalid rectangle");
-        }
         this.bottomRight = new Point(topRight.x, bottomLeft.y);
         this.topLeft = new Point(bottomLeft.x, topRight.y);
+        this.topLine = new Line(this.topLeft, this.topRight);
+        this.bottomLine = new Line(this.bottomLeft, this.bottomRight);
+        this.rightLine = new Line(this.bottomRight, this.topRight);
+        this.leftLine = new Line(this.bottomLeft, this.topLeft);
+        logger.info(this.toString());
+    }
+
+    public String contains(Rectangle other) {
+        return (other.bottomLeft.getX() >= this.bottomLeft.getX()) && (other.topRight.getX() <= this.topRight.getX())
+                && (other.bottomLeft.getY() >= this.bottomLeft.getY()) && (other.topRight.getY() <= this.topRight.getY()) ? Constants.CONTAINMENT : Constants.NO_CONTAINMENT;
     }
 
     public boolean isIntersecting(Rectangle other) {
-        return this.topRight.getX() >= other.bottomLeft.getX() && this.topRight.getY() >= other.bottomLeft.getY()
-                && other.topRight.getX() >= this.bottomLeft.getX()
-                && other.topRight.getY() >= this.bottomLeft.getY();
+        if (!this.contains(other).equals(Constants.CONTAINMENT)) {
+            return this.topRight.getX() > other.bottomLeft.getX() && this.topRight.getY() > other.bottomLeft.getY()
+                    && other.topRight.getX() > this.bottomLeft.getX()
+                    && other.topRight.getY() > this.bottomLeft.getY();
+        }
+        return false;
     }
 
-    public String sharing(Rectangle other) {
+    public String adjacentSharing(Rectangle other) {
+        //use hashmap
+        // remove multiple returns and use return string
 
-        Line rect1TopLine = new Line(this.topLeft, this.topRight);
-        Line rect1BottomLine = new Line(this.bottomLeft, this.bottomRight);
-        Line rect1RightLine = new Line(this.bottomRight, this.topRight);
-        Line rect1LeftLine = new Line(this.bottomLeft, this.topLeft);
+        String adjacentStatus=Constants.NOT_ADJACENT;
 
-        Line rect2TopLine = new Line(other.topLeft, other.topRight);
-        Line rect2BottomLine = new Line(other.bottomLeft, other.bottomRight);
-        Line rect2RightLine = new Line(other.bottomRight, other.topRight);
-        Line rect2LeftLine = new Line(other.bottomLeft, other.topLeft);
 
-        if (rect1BottomLine.equals(rect2TopLine) || rect1TopLine.equals(rect2BottomLine)
-                || rect1RightLine.equals(rect2LeftLine) || rect1LeftLine.equals(rect2RightLine)) {
-            return "Adjacent Proper";
+        String externalBottom = isLinesOverlapping(this.bottomLine, other.topLine);
+        String externalTop = isLinesOverlapping(this.topLine, other.bottomLine);
+        String externalRight = isLinesOverlapping(this.rightLine, other.leftLine);
+        String externalLeft = isLinesOverlapping(this.leftLine, other.rightLine);
+        String innerBottom = isLinesOverlapping(this.bottomLine, other.bottomLine);
+        String innerTop = isLinesOverlapping(this.topLine, other.topLine);
+        String innerRight = isLinesOverlapping(this.rightLine, other.rightLine);
+        String innerLeft = isLinesOverlapping(this.leftLine, other.leftLine);
 
-        }
-
-        if (rect1TopLine.equals(rect2TopLine) || rect1BottomLine.equals(rect2BottomLine)
-                || rect1RightLine.equals(rect2RightLine) || rect1LeftLine.equals(rect2LeftLine)) {
-            return "Internal Adjacent Proper";
+        if (this.bottomLine.equals(other.topLine) || this.topLine.equals(other.bottomLine)
+                || this.rightLine.equals(other.leftLine) || this.leftLine.equals(other.rightLine)) {
+            adjacentStatus= Constants.ADJACENT_PROPER;
 
         }
+        else if (this.topLine.equals(other.topLine) || this.bottomLine.equals(other.bottomLine)
+                || this.rightLine.equals(other.rightLine) || this.leftLine.equals(other.leftLine)) {
+            adjacentStatus= Constants.INTERNAL + Constants.ADJACENT_PROPER;
+        }
 
-        if (this.topRight.equals(other.bottomLeft) || this.topLeft.equals(other.bottomRight)
+
+        else if (this.topRight.equals(other.bottomLeft) || this.topLeft.equals(other.bottomRight)
                 || this.bottomRight.equals(other.topLeft) || this.bottomLeft.equals(other.topRight)) {
-            return "Vertex Share";
+            adjacentStatus= Constants.VERTEX_SHARE;
         }
 
-        String bottom = isLinesOverlapping(rect1BottomLine, rect2TopLine);
-        String top = isLinesOverlapping(rect1TopLine, rect2BottomLine);
-        String right = isLinesOverlapping(rect1RightLine, rect2LeftLine);
-        String left = isLinesOverlapping(rect1LeftLine, rect2RightLine);
-        if (!bottom.equals(Constants.NOT_OVERRIDING)) {
-            return bottom;
+
+
+        if (!externalBottom.equals(Constants.NOT_ADJACENT)) {
+            adjacentStatus= externalBottom;
         }
-        if (!top.equals(Constants.NOT_OVERRIDING)) {
-            return top;
+        if (!externalTop.equals(Constants.NOT_ADJACENT)) {
+            adjacentStatus= externalTop;
         }
-        if (!right.equals(Constants.NOT_OVERRIDING)) {
-            return right;
+        if (!externalRight.equals(Constants.NOT_ADJACENT)) {
+            adjacentStatus= externalRight;
         }
-        if (!left.equals(Constants.NOT_OVERRIDING)) {
-            return left;
+        if (!externalLeft.equals(Constants.NOT_ADJACENT)) {
+            adjacentStatus= externalLeft;
         }
-        return Constants.NOT_OVERRIDING;
+
+
+        if (
+                this.topRight.getY().equals(other.topRight.getY()) && this.topRight.getX() >= other.topRight.getX() ||
+                        this.topLeft.getY().equals(other.topLeft.getY()) && this.topLeft.getX() <= other.topLeft.getX() ||
+                        this.topRight.getX().equals(other.topRight.getX()) && this.topRight.getY() >= other.topRight.getY() ||
+                        this.topLeft.getX().equals(other.topLeft.getX()) && this.topLeft.getY() <= other.topLeft.getY() ||
+                        this.bottomLeft.getY().equals(other.bottomLeft.getY()) && this.bottomLeft.getX() <= other.bottomLeft.getX() ||
+                        this.bottomRight.getY().equals(other.bottomRight.getY()) && this.bottomRight.getX() >= other.bottomRight.getX() ||
+                        this.bottomLeft.getX().equals(other.bottomLeft.getX()) && this.bottomLeft.getY() <= other.bottomLeft.getY() ||
+                        this.bottomRight.getX().equals(other.bottomRight.getX()) && this.bottomRight.getY() >= other.bottomRight.getY()
+
+        ) {
+
+            if (!innerBottom.equals(Constants.NOT_ADJACENT)) {
+                adjacentStatus= Constants.INTERNAL + "" + innerBottom;
+            }
+            else if (!innerTop.equals(Constants.NOT_ADJACENT)) {
+                adjacentStatus= Constants.INTERNAL + "" + innerTop;
+            }
+            else if (!innerRight.equals(Constants.NOT_ADJACENT)) {
+                adjacentStatus= Constants.INTERNAL + "" + innerRight;
+            }
+            else if (!innerLeft.equals(Constants.NOT_ADJACENT)) {
+                adjacentStatus= Constants.INTERNAL + "" + innerLeft;
+            }
+        }
+        return adjacentStatus;
+
     }
 
-    private String isLinesOverlapping(Line l1, Line l2) {
-        if (l1.getA().getY().equals(l2.getA().getY()) && l1.getB().getY().equals(l2.getB().getY())) {
-            if ((l1.getA().getX() <= l2.getA().getX() && l2.getB().getX() <= l1.getB().getX())) {
+    private String isLinesOverlapping(Line thisLine, Line otherLine) {
+        if (thisLine.getA().getY().equals(otherLine.getA().getY()) && thisLine.getB().getY().equals(otherLine.getB().getY())) {
+            if ((thisLine.getA().getX() < otherLine.getA().getX() && otherLine.getB().getX() < thisLine.getB().getX())) {
                 return Constants.ADJACENT_SUB_LINE;
             }
-
-            if (l1.getA().getX() >= l2.getA().getX() && l2.getB().getX() >= l1.getB().getX()) {
+           else if (thisLine.getA().getX() >= otherLine.getA().getX() && otherLine.getB().getX() >= thisLine.getB().getX()) {
                 return Constants.ADJACENT_OVERFLOW;
             }
-            if ((l1.getA().getX() < l2.getA().getX()) && (l1.getB().getX() < l2.getB().getX())
-                    || ((l2.getA().getX() < l1.getA().getX()) && (l2.getB().getX() < l1.getB().getX()))) {
+            else if ((thisLine.getA().getX() < otherLine.getA().getX()) && (thisLine.getB().getX() < otherLine.getB().getX())
+                    || ((otherLine.getA().getX() < thisLine.getA().getX()) && (otherLine.getB().getX() < thisLine.getB().getX()))) {
                 return Constants.PARTIAL_ADJACENT;
-
             }
 
-        } else if (l1.getA().getX().equals(l2.getA().getX()) && l1.getB().getX().equals(l2.getB().getX())) {
-            if (l1.getA().getY() <= l2.getA().getY() && l2.getB().getY() <= l1.getB().getY()) {
+        } else if (thisLine.getA().getX().equals(otherLine.getA().getX()) && thisLine.getB().getX().equals(otherLine.getB().getX())) {
+            if (thisLine.getA().getY() <= otherLine.getA().getY() && otherLine.getB().getY() <= thisLine.getB().getY()) {
                 return Constants.ADJACENT_SUB_LINE;
             }
-            if (l1.getA().getY() >= l2.getA().getY() && l2.getB().getY() >= l1.getB().getY()) {
+            else if (thisLine.getA().getY() >= otherLine.getA().getY() && otherLine.getB().getY() >= thisLine.getB().getY()) {
                 return Constants.ADJACENT_OVERFLOW;
             }
-            if ((l1.getA().getY() < l2.getA().getY()) && (l1.getB().getY() < l2.getB().getY())
-                    || ((l2.getA().getY() < l1.getA().getY()) && (l2.getB().getY() < l1.getB().getY()))) {
+            else if ((thisLine.getA().getY() < otherLine.getA().getY()) && (thisLine.getB().getY() < otherLine.getB().getY())
+                    || ((otherLine.getA().getY() < thisLine.getA().getY()) && (otherLine.getB().getY() < thisLine.getB().getY()))) {
                 return Constants.PARTIAL_ADJACENT;
             }
-
         }
 
-        return Constants.NOT_OVERRIDING;
+        return Constants.NOT_ADJACENT;
     }
 
-
-    public boolean contains(Rectangle other) {
-        return (other.bottomLeft.getX() >= this.bottomLeft.getX()) && (other.topRight.getX() <= this.topRight.getX())
-                && (other.bottomLeft.getY() >= this.bottomLeft.getY()) && (other.topRight.getY() <= this.topRight.getY());
-    }
 
     @Override
     public int hashCode() {
@@ -139,8 +173,15 @@ public class Rectangle {
 
     @Override
     public String toString() {
-        return "Rectangle [bottomLeft=" + bottomLeft + ", topRight=" + topRight + ", bottomRight=" + bottomRight
-                + ", topLeft=" + topLeft + "]";
+        return "Rectangle{" +
+                "bottomLeft=" + bottomLeft +
+                ", topRight=" + topRight +
+                ", bottomRight=" + bottomRight +
+                ", topLeft=" + topLeft +
+                ", topLine=" + topLine +
+                ", bottomLine=" + bottomLine +
+                ", rightLine=" + rightLine +
+                ", leftLine=" + leftLine +
+                '}';
     }
-
 }

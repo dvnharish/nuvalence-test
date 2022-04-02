@@ -149,38 +149,38 @@ if (this.topRight.equals(other.bottomLeft) || this.topLeft.equals(other.bottomRi
     }
 ``` 
 ### Scenarios Covered 
-- Containment
- ![Screenshot](images/containment.png)
+- Containment<br />
+ ![Screenshot](images/containment.png)<br />
 ---
 
-- Intersection
- ![Screenshot](images/intersection.png)
+- Intersection<br />
+ ![Screenshot](images/intersection.png)<br />
 ---
 
-- No Intersection
- ![Screenshot](images/nointersection.png)
+- No Intersection<br />
+ ![Screenshot](images/nointersection.png)<br />
 ---
 
-- Partial Adjancey
- ![Screenshot](images/bottom_partial_adj.png)
+- Partial Adjancey<br />
+ ![Screenshot](images/bottom_partial_adj.png)<br />
 ---
 
-- Proper Adjancey
- ![Screenshot](images/proper_adjacent_top.png)
+- Proper Adjancey<br />
+ ![Screenshot](images/proper_adjacent_top.png)<br />
 ---
 
-- Proper Internal Adjancey
- ![Screenshot](images/internal_adjacent_proper.png)
+- Proper Internal Adjancey<br />
+ ![Screenshot](images/internal_adjacent_proper.png)<br />
 ---
 
-- Overflowing
- ![Screenshot](images/overflowing.png)
+- Overflowing<br />
+ ![Screenshot](images/overflowing.png)<br />
 ---
 
-- Subline
- ![Screenshot](images/subline.png)
+- Subline<br />
+ ![Screenshot](images/subline.png)<br />
  ---
 
-- Vertex Share
- ![Screenshot](images/vertex_share.png)
+- Vertex Share<br />
+ ![Screenshot](images/vertex_share.png)<br />
 ---

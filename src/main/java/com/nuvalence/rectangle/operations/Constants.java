@@ -17,4 +17,6 @@ public class Constants {
     public static final String INVALID_RECTANGLE = "Invalid rectangle";
     public static final String NO_CONTAINMENT = "No-Containment";
     public static final String VERTEX_SHARE = "Vertex Share";
+    public static final String B_L_CANNOT_BE_NULL = "Bottom Left Cannot be Null";
+    public static final String T_R_CANNOT_BE_NULL = "Top Right Cannot be Null";
 }

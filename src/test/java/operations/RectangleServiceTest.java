@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public class RectangleServiceTest {
+ class RectangleServiceTest {
 
 
     RectangleService rectangleService;
@@ -19,12 +19,12 @@ public class RectangleServiceTest {
     void testNoOperations() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.NOT_ADJACENT);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.NO_CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(6.0, 4.0));
         Rectangle rectangle2 = new Rectangle(new Point(-6.0, -6.0), new Point(-1.0, -1.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -33,12 +33,12 @@ public class RectangleServiceTest {
     void testSubLinelBottomAdjacent() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.ADJACENT_SUB_LINE);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.NO_CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(6.0, 4.0));
         Rectangle rectangle2 = new Rectangle(new Point(2.0, 0.0), new Point(3.0, 1.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -47,12 +47,12 @@ public class RectangleServiceTest {
     void testSubLineTopAdjacent() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.ADJACENT_SUB_LINE);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.NO_CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 0.5), new Point(6.0, 2.5));
         Rectangle rectangle2 = new Rectangle(new Point(3.5, 2.5), new Point(4.5, 3.5));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -61,12 +61,12 @@ public class RectangleServiceTest {
     void testSubLineRightAdjacent() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.ADJACENT_SUB_LINE);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.NO_CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 0.5), new Point(6.0, 2.5));
         Rectangle rectangle2 = new Rectangle(new Point(6.0, 1.0), new Point(7.0, 2.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -75,12 +75,12 @@ public class RectangleServiceTest {
     void testSubLineLeftAdjacent() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.ADJACENT_SUB_LINE);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.NO_CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 0.5), new Point(6.0, 2.5));
         Rectangle rectangle2 = new Rectangle(new Point(-0.5, 1.0), new Point(1.0, 2.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
     @DisplayName("Test Rectangle.testProperBottomAdjacent()")
@@ -88,12 +88,12 @@ public class RectangleServiceTest {
     void testProperBottomAdjacent() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.ADJACENT_PROPER);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.NO_CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(6.0, 4.0));
         Rectangle rectangle2 = new Rectangle(new Point(1.0, -0.5), new Point(6.0, 1.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -102,12 +102,12 @@ public class RectangleServiceTest {
     void testProperTopAdjacent() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.ADJACENT_PROPER);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.NO_CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(-7.0, -4.0), new Point(-2.0, -2.0));
         Rectangle rectangle2 = new Rectangle(new Point(-7.0, -2.0), new Point(-2.0, -1.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -116,12 +116,12 @@ public class RectangleServiceTest {
     void testProperRightAdjacent() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.ADJACENT_PROPER);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.NO_CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(-7.0, 1.0), new Point(-2.0, 3.0));
         Rectangle rectangle2 = new Rectangle(new Point(-2.0, 1.0), new Point(-1.0, 3.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -130,13 +130,13 @@ public class RectangleServiceTest {
     void testProperLeftAdjacent() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.ADJACENT_PROPER);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.NO_CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
 
         Rectangle rectangle1 = new Rectangle(new Point(-6.0, -3.5), new Point(-1.5, -1.5));
         Rectangle rectangle2 = new Rectangle(new Point(-7.0, -3.5), new Point(-6.0, -1.5));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -145,12 +145,12 @@ public class RectangleServiceTest {
     void testProperInternalContainmentTopAdjacent() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.INTERNAL + "" + Constants.ADJACENT_PROPER);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(5.5, 3.0));
         Rectangle rectangle2 = new Rectangle(new Point(1.0, 2.0), new Point(5.5, 3.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -159,12 +159,12 @@ public class RectangleServiceTest {
     void testProperInternalContainmentBottomAdjacent() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.INTERNAL + "" + Constants.ADJACENT_PROPER);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(5.5, 3.0));
         Rectangle rectangle2 = new Rectangle(new Point(1.0, 1.0), new Point(5.5, 2.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -173,12 +173,12 @@ public class RectangleServiceTest {
     void testProperInternalContainmentRightAdjacent() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.INTERNAL + "" + Constants.ADJACENT_PROPER);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(5.5, 3.0));
         Rectangle rectangle2 = new Rectangle(new Point(5.0, 1.0), new Point(5.5, 3.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -187,12 +187,12 @@ public class RectangleServiceTest {
     void testProperInternalContainmentLeftAdjacent() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.INTERNAL + "" + Constants.ADJACENT_PROPER);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(5.5, 3.0));
         Rectangle rectangle2 = new Rectangle(new Point(1.0, 1.0), new Point(1.5, 3.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -201,12 +201,12 @@ public class RectangleServiceTest {
     void testContainmentLeftAdjacent() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.INTERNAL + "" + Constants.ADJACENT_SUB_LINE);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(5.5, 3.0));
         Rectangle rectangle2 = new Rectangle(new Point(1.0, 1.0), new Point(2.0, 2.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -215,12 +215,12 @@ public class RectangleServiceTest {
     void testContainmentBottomAdjacent() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.INTERNAL + "" + Constants.ADJACENT_SUB_LINE);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(5.5, 3.0));
         Rectangle rectangle2 = new Rectangle(new Point(2.0, 1.0), new Point(3.0, 2.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -229,12 +229,12 @@ public class RectangleServiceTest {
     void testContainmentRightAdjacent() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.INTERNAL + "" + Constants.ADJACENT_SUB_LINE);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(5.5, 3.0));
         Rectangle rectangle2 = new Rectangle(new Point(4.5, 1.0), new Point(5.0, 2.5));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -243,12 +243,12 @@ public class RectangleServiceTest {
     void testContainmentTopAdjacent() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.INTERNAL + "" + Constants.ADJACENT_SUB_LINE);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(5.5, 3.0));
         Rectangle rectangle2 = new Rectangle(new Point(3.0, 2.0), new Point(4.0, 3.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -257,12 +257,12 @@ public class RectangleServiceTest {
     void testContainment() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.NOT_ADJACENT);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(5.0, 4.0));
         Rectangle rectangle2 = new Rectangle(new Point(3.0, 2.0), new Point(4.0, 3.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -271,12 +271,12 @@ public class RectangleServiceTest {
     void testBottomInternalAdjacentSubLineContainment() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.ADJACENT_SUB_LINE);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.NO_CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(6.0, 4.0));
         Rectangle rectangle2 = new Rectangle(new Point(2.0, 0.0), new Point(4.0, 1.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -285,12 +285,12 @@ public class RectangleServiceTest {
     void testBottomPartialAdjacent() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.PARTIAL_ADJACENT);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.NO_CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(6.0, 4.0));
         Rectangle rectangle2 = new Rectangle(new Point(2.0, 0.0), new Point(7.0, 1.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -299,12 +299,12 @@ public class RectangleServiceTest {
     void testBottomOverflowAdjacent() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.ADJACENT_OVERFLOW);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.NO_CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(6.0, 4.0));
         Rectangle rectangle2 = new Rectangle(new Point(0.0, 0.0), new Point(7.0, 1.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -313,12 +313,12 @@ public class RectangleServiceTest {
     void testLeftPartialAdjacent() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.PARTIAL_ADJACENT);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.NO_CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(6.0, 4.0));
         Rectangle rectangle2 = new Rectangle(new Point(0.0, 0.0), new Point(1.0, 3.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -327,12 +327,12 @@ public class RectangleServiceTest {
     void testLeftOverflowAdjacent() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.ADJACENT_OVERFLOW);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.NO_CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(6.0, 4.0));
         Rectangle rectangle2 = new Rectangle(new Point(0.0, 0.0), new Point(7.0, 1.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -341,12 +341,12 @@ public class RectangleServiceTest {
     void testTopOverflowAdjacent() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.ADJACENT_OVERFLOW);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.NO_CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(6.0, 4.0));
         Rectangle rectangle2 = new Rectangle(new Point(0.0, 4.0), new Point(7.0, 5.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -355,12 +355,12 @@ public class RectangleServiceTest {
     void testTopPartialAdjacent() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.PARTIAL_ADJACENT);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.NO_CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(6.0, 4.0));
         Rectangle rectangle2 = new Rectangle(new Point(0.0, 4.0), new Point(3.0, 5.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -369,12 +369,12 @@ public class RectangleServiceTest {
     void testRightOverflowAdjacent() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.ADJACENT_OVERFLOW);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.NO_CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(6.0, 4.0));
         Rectangle rectangle2 = new Rectangle(new Point(6.0, 0.0), new Point(8.0, 5.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -383,12 +383,12 @@ public class RectangleServiceTest {
     void testRightPartialAdjacent() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.PARTIAL_ADJACENT);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.NO_CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(6.0, 4.0));
         Rectangle rectangle2 = new Rectangle(new Point(6.0, 0.0), new Point(8.0, 3.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -399,10 +399,10 @@ public class RectangleServiceTest {
         rectangleResponse.setAdjacency(Constants.NOT_ADJACENT);
         rectangleResponse.setIntersection(Constants.INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(6.0, 4.0));
         Rectangle rectangle2 = new Rectangle(new Point(2.0, 0.0), new Point(5.0, 2.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
     @DisplayName("Test Rectangle.testTopIntersection()")
@@ -412,10 +412,10 @@ public class RectangleServiceTest {
         rectangleResponse.setAdjacency(Constants.NOT_ADJACENT);
         rectangleResponse.setIntersection(Constants.INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(6.0, 4.0));
         Rectangle rectangle2 = new Rectangle(new Point(2.0, 3.0), new Point(3.0, 5.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -426,10 +426,10 @@ public class RectangleServiceTest {
         rectangleResponse.setAdjacency(Constants.NOT_ADJACENT);
         rectangleResponse.setIntersection(Constants.INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(6.0, 4.0));
         Rectangle rectangle2 = new Rectangle(new Point(5.5, 1.5), new Point(7.0, 3.5));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -440,10 +440,10 @@ public class RectangleServiceTest {
         rectangleResponse.setAdjacency(Constants.NOT_ADJACENT);
         rectangleResponse.setIntersection(Constants.INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(6.0, 4.0));
         Rectangle rectangle2 = new Rectangle(new Point(0.5, 1.5), new Point(2.0, 3.5));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
     @DisplayName("Test Rectangle.testLeftIntersection()")
@@ -451,12 +451,12 @@ public class RectangleServiceTest {
     void testInternalLeftSubLine() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.INTERNAL + "" + Constants.ADJACENT_SUB_LINE);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(6.0, 4.0));
         Rectangle rectangle2 = new Rectangle(new Point(1.0, 2.0), new Point(2.0, 3.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
     @DisplayName("Test Rectangle.testInternalRightSubLine()")
@@ -464,12 +464,12 @@ public class RectangleServiceTest {
     void testInternalRightSubLine() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.INTERNAL + "" + Constants.ADJACENT_SUB_LINE);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(6.0, 4.0));
         Rectangle rectangle2 = new Rectangle(new Point(5.0, 2.0), new Point(6.0, 3.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -478,12 +478,12 @@ public class RectangleServiceTest {
     void testInternalTopSubLine() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.INTERNAL + "" + Constants.ADJACENT_SUB_LINE);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(6.0, 4.0));
         Rectangle rectangle2 = new Rectangle(new Point(3.0, 3.0), new Point(4.0, 4.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
     @DisplayName("Test Rectangle.testInternalBottomSubLine()")
@@ -491,12 +491,12 @@ public class RectangleServiceTest {
     void testInternalBottomSubLine() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.INTERNAL + "" + Constants.ADJACENT_SUB_LINE);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(6.0, 4.0));
         Rectangle rectangle2 = new Rectangle(new Point(3.0, 1.0), new Point(4.0, 2.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -507,10 +507,10 @@ public class RectangleServiceTest {
         rectangleResponse.setAdjacency(Constants.NOT_ADJACENT);
         rectangleResponse.setIntersection(Constants.INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(6.0, 4.0));
         Rectangle rectangle2 = new Rectangle(new Point(5.0, 0.0), new Point(7.0, 2.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
     @DisplayName("Test Rectangle.testRectangleTwoOverlappingRectangleOne()")
@@ -520,10 +520,10 @@ public class RectangleServiceTest {
         rectangleResponse.setAdjacency(Constants.NOT_ADJACENT);
         rectangleResponse.setIntersection(Constants.INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(6.0, 4.0));
         Rectangle rectangle2 = new Rectangle(new Point(0.0, 0.0), new Point(8.0, 8.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
     @DisplayName("Test Rectangle.testBottomLeftVertex()")
@@ -531,12 +531,12 @@ public class RectangleServiceTest {
     void testBottomLeftVertex() {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setAdjacency(Constants.VERTEX_SHARE);
-        rectangleResponse.setIntersection(Constants.NO_INTERSECTION + "" + Constants.NO_CONTAINMENT);
+        rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
-        rectangleService = new RectangleService();
+        this.rectangleService = new RectangleService();
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(6.0, 4.0));
         Rectangle rectangle2 = new Rectangle(new Point(0.0, 0.0), new Point(1.0, 1.0));
-        assertEquals(rectangleResponse, rectangleService.operations(rectangle1, rectangle2));
+        assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
     }
 
 
@@ -544,7 +544,7 @@ public class RectangleServiceTest {
     @Test
     void testNegativeTestCases() {
         IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new BasicRectangle(new Point(0.0, 0.0), new Point(-1.0, 1.0));
+            new Rectangle(new Point(0.0, 0.0), new Point(-1.0, 1.0));
         }, "Invalid rectangle");
 
         Assertions.assertEquals("Invalid rectangle", thrown.getMessage());
@@ -555,7 +555,7 @@ public class RectangleServiceTest {
     @Test
     void testNegativeTestCasesNanY() {
         IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new BasicRectangle(new Point(0.0, 0.0), new Point(-1.0, Double.NaN));
+            new Rectangle(new Point(0.0, 0.0), new Point(-1.0, Double.NaN));
         }, "Y-coordinates cannot be NaN");
 
         Assertions.assertEquals("Y-coordinates cannot be NaN", thrown.getMessage());
@@ -565,7 +565,7 @@ public class RectangleServiceTest {
     @Test
     void testNegativeTestCasesNanX() {
         IllegalArgumentException thrown = Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new BasicRectangle(new Point(Double.NaN, 0.0), new Point(-1.0, 0.0));
+            new Rectangle(new Point(Double.NaN, 0.0), new Point(-1.0, 0.0));
         }, "X-coordinates cannot be NaN");
 
         Assertions.assertEquals("X-coordinates cannot be NaN", thrown.getMessage());

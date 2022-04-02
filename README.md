@@ -148,40 +148,40 @@ if (this.topRight.equals(other.bottomLeft) || this.topLeft.equals(other.bottomRi
         return linesOverlappingStatus;
     }
 ``` 
-- Scenarios Covered 
-    - Containment
+### Scenarios Covered 
+- Containment
  ![Screenshot](images/containment.png)
 ---
 
 
-    - Intersection
+- Intersection
  ![Screenshot](images/intersection.png)
 ---
 
-    - No Intersection
+- No Intersection
  ![Screenshot](images/nointersection.png)
 ---
 
-    - Partial Adjancey
+- Partial Adjancey
  ![Screenshot](images/bottom_partial_adj.png)
 ---
 
-    - Proper Adjancey
+- Proper Adjancey
  ![Screenshot](images/proper_adjacent_top.png)
 ---
 
-    - Proper Internal Adjancey
+- Proper Internal Adjancey
  ![Screenshot](images/internal_adjacent_proper.png)
 ---
 
-    - Overflowing
+- Overflowing
  ![Screenshot](images/overflowing.png)
 ---
 
-    - Subline
+- Subline
  ![Screenshot](images/subline.png)
  ---
 
-    - Vertex Share
+- Vertex Share
  ![Screenshot](images/vertex_share.png)
 ---

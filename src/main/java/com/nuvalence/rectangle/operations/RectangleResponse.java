@@ -2,13 +2,31 @@ package com.nuvalence.rectangle.operations;
 
 import java.util.Objects;
 
+
+/**
+ * The {@code RectangleResponse} class is a response Class of Rectangle Operations
+ *
+ * @author Harish Duddupudi
+ */
+
 public class RectangleResponse {
+
+    /**
+     * if there is an intersection between two rectangle
+     */
     private String intersection;
+    /**
+     * if one rectangle is inside other rectangle
+     */
     private String containment;
+    /**
+     * if there is a common border share between two rectangle
+     */
+
     private String adjacency;
 
     public String getIntersection() {
-        return intersection;
+        return this.intersection;
     }
 
     public void setIntersection(String intersection) {
@@ -16,7 +34,7 @@ public class RectangleResponse {
     }
 
     public String getContainment() {
-        return containment;
+        return this.containment;
     }
 
     public void setContainment(String containment) {
@@ -24,7 +42,7 @@ public class RectangleResponse {
     }
 
     public String getAdjacency() {
-        return adjacency;
+        return this.adjacency;
     }
 
     public void setAdjacency(String adjacency) {
@@ -49,9 +67,9 @@ public class RectangleResponse {
     @Override
     public String toString() {
         return "RectangleResponse{" +
-                "intersection='" + intersection + '\'' +
-                ", containment='" + containment + '\'' +
-                ", adjacency='" + adjacency + '\'' +
+                "intersection='" + this.intersection + '\'' +
+                ", containment='" + this.containment + '\'' +
+                ", adjacency='" + this.adjacency + '\'' +
                 '}';
     }
 }

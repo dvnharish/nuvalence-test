@@ -8,15 +8,11 @@ public class Constants {
     public static final String CONTAINMENT = "Containment ";
     public static final String INTERSECTION = "Intersection ";
     public static final String NO_INTERSECTION = "No-Intersection ";
-    public static final String ADJACENCY = "Adjacency ";
     public static final String ADJACENT_PROPER = "Adjacent Proper ";
     public static final String INTERNAL = "Internal ";
-    public static final String ADJACENT_PARTIAL = "Adjacent Partial ";
     public static final String X_CANNOT_BE_NULL = "X-coordinates cannot be NaN";
     public static final String Y_CANNOT_BE_NULL = "Y-coordinates cannot be NaN";
     public static final String INVALID_RECTANGLE = "Invalid rectangle";
     public static final String NO_CONTAINMENT = "No-Containment";
     public static final String VERTEX_SHARE = "Vertex Share";
-    public static final String B_L_CANNOT_BE_NULL = "Bottom Left Cannot be Null";
-    public static final String T_R_CANNOT_BE_NULL = "Top Right Cannot be Null";
 }

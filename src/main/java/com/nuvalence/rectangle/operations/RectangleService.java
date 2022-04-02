@@ -1,8 +1,6 @@
 package com.nuvalence.rectangle.operations;
 
 public class RectangleService {
-
-
     public RectangleResponse operations(Rectangle rectangle1, Rectangle rectangle2) {
         RectangleResponse rectangleResponse = new RectangleResponse();
         rectangleResponse.setContainment(rectangle1.contains(rectangle2));

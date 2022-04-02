@@ -1,34 +1,46 @@
 package com.nuvalence.rectangle.operations;
 
+/**
+ * This {@code Line} represents a line segment in {@code Point (x,y) a,@code Point (x,y) b} a 2D coordinate space.
+ * <p>
+ */
+
 public class Line {
     Point a;
     Point b;
 
+    /**
+     * The  {@code Point (x,y) a,@code Point (x,y) b} are two points in a 2D coordinate where {@Code Point a} represent starting point and {@Code Point b} represent ending point .
+     */
+
     public Line(Point a, Point b) {
-        super();
         this.a = a;
         this.b = b;
     }
 
+    private Line() {
+
+    }
+
     public Point getA() {
-        return a;
+        return this.a;
     }
 
     public Point getB() {
-        return b;
+        return this.b;
     }
 
     @Override
     public String toString() {
-        return "Line [a=" + a + ", b=" + b + "]";
+        return "Line [a=" + this.a + ", b=" + this.b + "]";
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((a == null) ? 0 : a.hashCode());
-        result = prime * result + ((b == null) ? 0 : b.hashCode());
+        result = prime * result + ((this.a == null) ? 0 : this.a.hashCode());
+        result = prime * result + ((this.b == null) ? 0 : this.b.hashCode());
         return result;
     }
 
@@ -41,14 +53,14 @@ public class Line {
         if (getClass() != obj.getClass())
             return false;
         Line other = (Line) obj;
-        if (a == null) {
+        if (this.a == null) {
             if (other.a != null)
                 return false;
-        } else if (!a.equals(other.a))
+        } else if (!this.a.equals(other.a))
             return false;
-        if (b == null) {
+        if (this.b == null) {
             return other.b == null;
-        } else return b.equals(other.b);
+        } else return this.b.equals(other.b);
     }
 
 }

@@ -1,12 +1,31 @@
 package com.nuvalence.rectangle.operations;
 
-public class Point {
+/**
+ * @author Harish Duddupudi
+ * A Point representing a precise location in {@code (x,y)} coordinate space,
+ * specified in Double.
+ */
 
+public class Point {
+    /**
+     * The {@code x} coordinate of this {@code Point} represent the x axis on 2D coordinate space.
+     * The {@code y} coordinate of this {@code Point} represent the x axis on 2D coordinate space.
+     */
     Double x, y;
 
+    /**
+     * The  {@code Point(x,y)} coordinate of this {@code Point} represent the x and y axis on 2D coordinate space.
+     */
     public Point(Double x, Double y) {
         this.x = x;
         this.y = y;
+    }
+
+    /**
+     * The  {@code Point(x,y)} is a mandatory Object.
+     */
+    private Point() {
+
     }
 
     public Double getX() {

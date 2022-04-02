@@ -621,5 +621,75 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
         Assertions.assertEquals(l1.equals(l2), l1.hashCode() == l2.hashCode());
     }
 
+     @DisplayName("Test Rectangle.testRightSemiOverflow()")
+     @Test
+     void testRightSemiOverflow() {
+         RectangleResponse rectangleResponse = new RectangleResponse();
+         rectangleResponse.setAdjacency(Constants.ADJACENT_OVERFLOW);
+         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
+         rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
+         this.rectangleService = new RectangleService();
+         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(3.0, 3.0));
+         Rectangle rectangle2 = new Rectangle(new Point(3.0, 0.0), new Point(4.0, 3.0));
+         assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
+     }
+
+     @DisplayName("Test Rectangle.testBottomSemiOverflow()")
+     @Test
+     void testBottomSemiOverflow() {
+         RectangleResponse rectangleResponse = new RectangleResponse();
+         rectangleResponse.setAdjacency(Constants.ADJACENT_OVERFLOW);
+         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
+         rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
+         this.rectangleService = new RectangleService();
+         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(3.0, 3.0));
+         Rectangle rectangle2 = new Rectangle(new Point(0.0, 0.0), new Point(3.0, 1.0));
+         assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
+     }
+
+
+     @DisplayName("Test Rectangle.testTopOverflow()")
+     @Test
+     void testTopOverflow() {
+         RectangleResponse rectangleResponse = new RectangleResponse();
+         rectangleResponse.setAdjacency(Constants.ADJACENT_OVERFLOW);
+         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
+         rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
+         this.rectangleService = new RectangleService();
+         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(3.0, 3.0));
+         Rectangle rectangle2 = new Rectangle(new Point(1.0, 3.0), new Point(4.0, 4.0));
+         assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
+
+     }
+
+
+     @DisplayName("Test Rectangle.testLeftOverflow()")
+     @Test
+     void testLeftOverflow() {
+         RectangleResponse rectangleResponse = new RectangleResponse();
+         rectangleResponse.setAdjacency(Constants.ADJACENT_OVERFLOW);
+         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
+         rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
+         this.rectangleService = new RectangleService();
+         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(3.0, 3.0));
+         Rectangle rectangle2 = new Rectangle(new Point(0.0, 0.0), new Point(1.0, 3.0));
+         assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
+
+     }
+
+
+     @DisplayName("Test Rectangle.testLeftPartialAdjacency()")
+     @Test
+     void testLeftPartialAdjacency() {
+         RectangleResponse rectangleResponse = new RectangleResponse();
+         rectangleResponse.setAdjacency(Constants.PARTIAL_ADJACENT);
+         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
+         rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
+         this.rectangleService = new RectangleService();
+         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(3.0, 3.0));
+         Rectangle rectangle2 = new Rectangle(new Point(0.0, 0.0), new Point(1.0, 2.0));
+         assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
+
+     }
 
 }

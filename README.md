@@ -3,12 +3,14 @@
 ## Problem: 
 Given two rectangles, the program need to find if the two rectangles are ___Containing, Intersecting  or Adjacent___ to each other
 
-### Intersection: 
-You must be able to determine whether two rectangles have one or more
-intersecting lines and produce a result identifying the points of intersection.
 ### Containment: 
 You must be able to determine whether a rectangle is wholly contained within
 another rectangle.
+
+### Intersection: 
+You must be able to determine whether two rectangles have one or more
+intersecting lines and produce a result identifying the points of intersection.
+
 ### Adjacency: 
 Implement the ability to detect whether two rectangles are adjacent. Adjacency is
 defined as the sharing of at least one side. Side sharing may be proper, sub-line or partial. A

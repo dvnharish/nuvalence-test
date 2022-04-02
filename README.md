@@ -152,6 +152,7 @@ if (this.topRight.equals(other.bottomLeft) || this.topLeft.equals(other.bottomRi
     - Containment
  ![Screenshot](images/containment.png)
 
+
     - Intersection
  ![Screenshot](images/intersection.png)
 

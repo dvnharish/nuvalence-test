@@ -151,28 +151,37 @@ if (this.topRight.equals(other.bottomLeft) || this.topLeft.equals(other.bottomRi
 - Scenarios Covered 
     - Containment
  ![Screenshot](images/containment.png)
+---
 
 
     - Intersection
  ![Screenshot](images/intersection.png)
+---
 
     - No Intersection
  ![Screenshot](images/nointersection.png)
+---
 
     - Partial Adjancey
  ![Screenshot](images/bottom_partial_adj.png)
+---
 
     - Proper Adjancey
  ![Screenshot](images/proper_adjacent_top.png)
+---
 
     - Proper Internal Adjancey
  ![Screenshot](images/internal_adjacent_proper.png)
+---
 
     - Overflowing
  ![Screenshot](images/overflowing.png)
+---
 
     - Subline
  ![Screenshot](images/subline.png)
- 
+ ---
+
     - Vertex Share
  ![Screenshot](images/vertex_share.png)
+---

@@ -71,8 +71,14 @@ public class Rectangle {
      * @return {@code No-Containment} if this rectangle does not contain the rectangle {@code other}
      */
     public String contains(Rectangle other) {
-        return (other.bottomLeft.getX() >= this.bottomLeft.getX()) && (other.topRight.getX() <= this.topRight.getX())
-                && (other.bottomLeft.getY() >= this.bottomLeft.getY()) && (other.topRight.getY() <= this.topRight.getY()) ? Constants.CONTAINMENT : Constants.NO_CONTAINMENT;
+        return (other.bottomLeft.getX() >= this.bottomLeft.getX())
+                && (other.topRight.getX() <= this.topRight.getX())
+                && (other.bottomLeft.getY() >= this.bottomLeft.getY())
+                && (other.topRight.getY() <= this.topRight.getY())
+                    ?
+                Constants.CONTAINMENT
+                    :
+                Constants.NO_CONTAINMENT;
     }
 
     /**

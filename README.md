@@ -25,6 +25,31 @@ segment on a side of rectangle A exists as a set of points on some side of Recta
 - Appropriate documentation
 - Test cases/unit tests
 
+### Solution 
+- take the rectangle-operations.jar from ./executables/rectangle-operations.jar
+- run the jar with java -jar rectangle-operations.jar
+```shell script
+
+java -jar rectangle-operations.jar
+Enter the Lower Left Vertex Point (x,y)  for the first  rectangle
+Enter the value X in the format of #.#
+1.0 1.0
+Your Lower Left Vertex coordinate is Point [x=1.0, y=1.0]
+Enter the Top Right Vertex Point (x,y)  for the first  rectangle
+5.0 3.0
+Your Lower Left Vertex coordinate is Point [x=5.0, y=3.0]
+Your First Rectangle is Rectangle{bottomLeft=Point [x=1.0, y=1.0], topRight=Point [x=5.0, y=3.0], bottomRight=Point [x=5.0, y=1.0], topLeft=Point [x=1.0, y=3.0]}
+Enter the Lower Left Vertex Point (x,y)  for the second  rectangle
+Enter the value X in the format of #.#
+0.0 0.0
+Your Lower Left Vertex coordinate is Point [x=0.0, y=0.0]
+Enter the Top Right Vertex Point (x,y)  for the second  rectangle
+3.0 1.0
+Your Lower Left Vertex coordinate is Point [x=3.0, y=1.0]
+Your Second Rectangle is Rectangle{bottomLeft=Point [x=0.0, y=0.0], topRight=Point [x=3.0, y=1.0], bottomRight=Point [x=3.0, y=0.0], topLeft=Point [x=0.0, y=1.0]}
+RectangleResponse{intersection='No-Intersection ', containment='No-Containment', adjacency='Partial Adjacent '}
+```
+
 
 ## Solution Description 
 

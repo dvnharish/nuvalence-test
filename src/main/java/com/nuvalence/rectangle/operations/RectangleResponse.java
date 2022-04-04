@@ -8,7 +8,6 @@ import java.util.Objects;
  *
  * @author Harish Duddupudi
  */
-
 public class RectangleResponse {
 
     /**
@@ -66,7 +65,7 @@ public class RectangleResponse {
 
     @Override
     public String toString() {
-        return "RectangleResponse{" +
+        return "{" +
                 "intersection='" + this.intersection + '\'' +
                 ", containment='" + this.containment + '\'' +
                 ", adjacency='" + this.adjacency + '\'' +

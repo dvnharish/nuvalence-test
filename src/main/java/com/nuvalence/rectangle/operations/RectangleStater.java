@@ -46,7 +46,10 @@ public class RectangleStater {
         out.println("Your Lower Left Vertex coordinate is " + r2TopRightPoint.toString());
         Rectangle rectangle2 = new Rectangle(r2LowerLeftPoint, r2TopRightPoint);
         out.println("Your Second Rectangle is " + rectangle2.toString());
+        out.println("The Rectangle Operations are");
+        out.println("################################################################################################################################################");
         out.println(rectangleService.operations(rectangle1, rectangle2));
+        out.println("################################################################################################################################################");
         bufferedReader.close();
     }
 }

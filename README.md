@@ -48,6 +48,7 @@ Enter the Top Right Vertex Point (x,y)  for the second  rectangle
 Your Lower Left Vertex coordinate is Point [x=3.0, y=1.0]
 Your Second Rectangle is Rectangle{bottomLeft=Point [x=0.0, y=0.0], topRight=Point [x=3.0, y=1.0], bottomRight=Point [x=3.0, y=0.0], topLeft=Point [x=0.0, y=1.0]}
 RectangleResponse{intersection='No-Intersection ', containment='No-Containment', adjacency='Partial Adjacent '}
+
 ```
 
 

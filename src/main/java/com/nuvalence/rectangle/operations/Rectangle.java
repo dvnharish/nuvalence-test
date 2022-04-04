@@ -66,8 +66,8 @@ public class Rectangle {
 
     /**
      * Returns true if this rectangle contain the rectangle.
-     * @param  other the rectangle
-     * @return {@code Containment} if this rectangle contain the rectangle {@code other},
+     *
+     * @param other the rectangle
      * @return {@code No-Containment} if this rectangle does not contain the rectangle {@code other}
      */
     public String contains(Rectangle other) {
@@ -75,16 +75,16 @@ public class Rectangle {
                 && (other.topRight.getX() <= this.topRight.getX())
                 && (other.bottomLeft.getY() >= this.bottomLeft.getY())
                 && (other.topRight.getY() <= this.topRight.getY())
-                    ?
+                ?
                 Constants.CONTAINMENT
-                    :
+                :
                 Constants.NO_CONTAINMENT;
     }
 
     /**
      * Returns true if the two rectangles are Intersecting.
      *
-     * @param  other the other rectangle
+     * @param other the other rectangle
      * @return {@code true} if this rectangle intersect the other rectangle at one or more points
      */
     public boolean isIntersecting(Rectangle other) {
@@ -99,17 +99,11 @@ public class Rectangle {
     /**
      * Returns the sharing status if the two rectangles are sharing a border.
      *
-     * @param  other the other rectangle
-     * @return {@code Partial Adjacent } if this rectangle is sharing border the other rectangle partially
-     * @return {@code Adjacent (Overflow)} if this rectangle is sharing border the other rectangle and overflowing the length or width of this rectangle
-     * @return {@code Adjacent (Sub-line)} if this rectangle is sharing border the other rectangle sub line
-     * @return {@code Not Adjacent} if this rectangle is not sharing border the other rectangle completely
+     * @param other the other rectangle
      * @return {@code Vertex Share} if this rectangle is sharing Vertex the other rectangle
      */
     public String adjacentSharing(Rectangle other) {
         String adjacentShareStatus = Constants.NOT_ADJACENT;
-
-
 
 
         if (this.bottomLine.equals(other.topLine) || this.topLine.equals(other.bottomLine)
@@ -136,10 +130,10 @@ public class Rectangle {
             String innerTop = isLinesOverlapping(this.topLine, other.topLine);
             String innerRight = isLinesOverlapping(this.rightLine, other.rightLine);
             String innerLeft = isLinesOverlapping(this.leftLine, other.leftLine);
-            if(externalBottom.equals(Constants.NOT_ADJACENT)
-                    && externalTop.equals(Constants.NOT_ADJACENT)&&
-                    externalRight.equals(Constants.NOT_ADJACENT)&
-                    externalLeft.equals(Constants.NOT_ADJACENT)){
+            if (externalBottom.equals(Constants.NOT_ADJACENT)
+                    && externalTop.equals(Constants.NOT_ADJACENT) &&
+                    externalRight.equals(Constants.NOT_ADJACENT) &
+                            externalLeft.equals(Constants.NOT_ADJACENT)) {
                 adjacentShareStatus = getInternalShareStatusIfAdjacent(innerBottom, innerTop, innerRight, innerLeft);
 
             }
@@ -150,7 +144,6 @@ public class Rectangle {
 
     /**
      * @param other checking if this rectangle bottom right point is sharing
-     * @return true if sharing
      * @return false if not sharing
      */
     private boolean isBottomRightSharingBorder(Rectangle other) {
@@ -160,7 +153,6 @@ public class Rectangle {
 
     /**
      * @param other checking if this rectangle bottom left point  is sharing
-     * @return true if sharing
      * @return false if not sharing
      */
     private boolean isBottomLeftSharingBorder(Rectangle other) {
@@ -170,7 +162,6 @@ public class Rectangle {
 
     /**
      * @param other checking if this rectangle top left point  is sharing
-     * @return true if sharing
      * @return false if not sharing
      */
     private boolean isTopLeftSharingBorder(Rectangle other) {
@@ -180,7 +171,6 @@ public class Rectangle {
 
     /**
      * @param other checking if this rectangle top right point  is sharing
-     * @return true if sharing
      * @return false if not sharing
      */
 
@@ -191,9 +181,9 @@ public class Rectangle {
 
     /**
      * @param innerBottom checking if other rectangle is inner bottom of this rectangle
-     * @param innerTop checking if other rectangle is inner top of this rectangle
-     * @param innerRight checking if other rectangle is inner right of this rectangle
-     * @param innerLeft checking if other rectangle is inner left of this rectangle
+     * @param innerTop    checking if other rectangle is inner top of this rectangle
+     * @param innerRight  checking if other rectangle is inner right of this rectangle
+     * @param innerLeft   checking if other rectangle is inner left of this rectangle
      * @return adjacentShareStatus the status if they share borders internally
      */
     private String getInternalShareStatusIfAdjacent(String innerBottom, String innerTop, String innerRight, String innerLeft) {
@@ -215,10 +205,10 @@ public class Rectangle {
     /**
      * Returns the sharing status if the two rectangles are sharing a border externally.
      *
-     * @param  externalBottom status of the external bottom line of this rectangle share a border with external top of the other rectangle
-     * @param  externalTop status of the external top line of this rectangle share a border with external bottom of the other rectangle
-     * @param  externalRight status of the external right line of this rectangle share a border with external left of the other rectangle
-     * @param  externalLeft status of the external left line of this rectangle share a border with external right of the other rectangle
+     * @param externalBottom status of the external bottom line of this rectangle share a border with external top of the other rectangle
+     * @param externalTop    status of the external top line of this rectangle share a border with external bottom of the other rectangle
+     * @param externalRight  status of the external right line of this rectangle share a border with external left of the other rectangle
+     * @param externalLeft   status of the external left line of this rectangle share a border with external right of the other rectangle
      * @return {@code adjacentShareStatus } the status of the rectangle if they share borders
      */
     private String getExternalShareStatusIfAdjacent(String adjacentShareStatus, String externalBottom, String externalTop, String externalRight, String externalLeft) {
@@ -236,7 +226,7 @@ public class Rectangle {
 
 
     /**
-     * @param thisLine borderline of this rectangle
+     * @param thisLine  borderline of this rectangle
      * @param otherLine borderline of other rectangle
      * @return linesOverlappingStatus status of the lines if they are overlapping with eac hother
      */
@@ -252,9 +242,8 @@ public class Rectangle {
     }
 
     /**
-     * @param thisLine borderline of this rectangle
+     * @param thisLine  borderline of this rectangle
      * @param otherLine borderline of other rectangle
-     * @return linesOverlappingStatus status of the lines if they are overlapping with each other on X axis
      * @return linesOverlappingStatus updating the overlapping status
      */
     private String getAdjacencyOnXAxis(Line thisLine, Line otherLine, String linesOverlappingStatus) {
@@ -268,10 +257,10 @@ public class Rectangle {
         }
         return linesOverlappingStatus;
     }
+
     /**
-     * @param thisLine borderline of this rectangle
+     * @param thisLine  borderline of this rectangle
      * @param otherLine borderline of other rectangle
-     * @return linesOverlappingStatus status of the lines if they are overlapping with each other on Y axis
      * @return linesOverlappingStatus updating the overlapping status
      */
     private String getAdjacencyOnYAxis(Line thisLine, Line otherLine, String linesOverlappingStatus) {
@@ -316,10 +305,6 @@ public class Rectangle {
                 ", topRight=" + this.topRight +
                 ", bottomRight=" + this.bottomRight +
                 ", topLeft=" + this.topLeft +
-                ", topLine=" + this.topLine +
-                ", bottomLine=" + this.bottomLine +
-                ", rightLine=" + this.rightLine +
-                ", leftLine=" + this.leftLine +
                 '}';
     }
 }

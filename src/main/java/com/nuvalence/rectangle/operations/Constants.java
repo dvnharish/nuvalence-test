@@ -15,4 +15,6 @@ public class Constants {
     public static final String INVALID_RECTANGLE = "Invalid rectangle";
     public static final String NO_CONTAINMENT = "No-Containment";
     public static final String VERTEX_SHARE = "Vertex Share";
+    public static final String Y = "Enter the value Y in the format of #.#";
+    public static final String X = "Enter the value X in the format of #.#";
 }

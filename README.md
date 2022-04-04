@@ -199,6 +199,10 @@ if (this.topRight.equals(other.bottomLeft) || this.topLeft.equals(other.bottomRi
  ![Screenshot](images/bottom_partial_adj.png)<br />
 ---
 
+- Subline<br />
+ ![Screenshot](images/subline.png)<br />
+ ---
+
 - Proper Adjancey<br />
  ![Screenshot](images/proper_adjacent_top.png)<br />
 ---
@@ -211,9 +215,13 @@ if (this.topRight.equals(other.bottomLeft) || this.topLeft.equals(other.bottomRi
  ![Screenshot](images/overflowing.png)<br />
 ---
 
-- Subline<br />
- ![Screenshot](images/subline.png)<br />
- ---
+- Intersection and Internal Adjacent (Overflow)<br />
+ ![Screenshot](images/Internal_Adjacent_Overflow.png)<br />
+---
+
+- Intersection and Internal Adjacent (Sub-line)<br />
+ ![Screenshot](images/Internal_Adjacent_Sub_line.png)<br />
+---
 
 - Vertex Share<br />
  ![Screenshot](images/vertex_share.png)<br />

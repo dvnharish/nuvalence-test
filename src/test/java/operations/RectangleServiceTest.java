@@ -692,4 +692,32 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
      }
 
+     @DisplayName("Test Rectangle.testOverlappingRectangles()")
+     @Test
+     void testOverlappingRectangles() {
+         RectangleResponse rectangleResponse = new RectangleResponse();
+         rectangleResponse.setAdjacency(Constants.INTERNAL+Constants.ADJACENT_OVERFLOW);
+         rectangleResponse.setContainment(Constants.NO_CONTAINMENT);
+         rectangleResponse.setIntersection(Constants.INTERSECTION);
+         this.rectangleService = new RectangleService();
+         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(5.0, 3.0));
+         Rectangle rectangle2 = new Rectangle(new Point(0.0, 0.0), new Point(5.0, 3.0));
+         assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
+
+     }
+
+     @DisplayName("Test Rectangle.testOverlappingRectanglesOpposite()")
+     @Test
+     void testOverlappingRectanglesOpposite() {
+         RectangleResponse rectangleResponse = new RectangleResponse();
+         rectangleResponse.setAdjacency(Constants.INTERNAL+Constants.ADJACENT_SUB_LINE);
+         rectangleResponse.setContainment(Constants.CONTAINMENT);
+         rectangleResponse.setIntersection(Constants.NO_INTERSECTION);
+         this.rectangleService = new RectangleService();
+         Rectangle rectangle2 = new Rectangle(new Point(1.0, 1.0), new Point(5.0, 3.0));
+         Rectangle rectangle1 = new Rectangle(new Point(0.0, 0.0), new Point(5.0, 3.0));
+         assertEquals(rectangleResponse, this.rectangleService.operations(rectangle1, rectangle2));
+
+     }
+
 }

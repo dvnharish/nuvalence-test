@@ -32,3 +32,10 @@ out/
 *.iml
 *.ipr
 *.iws
+##############################
+## Eclipse
+##############################
+.classpath
+.project
+.settings
+.settings/*

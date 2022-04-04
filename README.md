@@ -57,6 +57,10 @@ The Rectangle Operations are
 
 ```
 
+### Dependencies Used 
+- Java Version: JDK 11
+- Unit testing: junit.jupiter:5.5.2
+
 
 ## Solution Description 
 

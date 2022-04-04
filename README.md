@@ -56,7 +56,7 @@ output
 - The input requires two Rectangles 
 ```java
         Rectangle rectangle1 = new Rectangle(new Point(1.0, 1.0), new Point(5.0, 3.0));
-        Rectangle rectangle2 = new Rectangle(new Point(0.0, 0.0), new Point(1.0, 3.0));
+        Rectangle rectangle2 = new Rectangle(new Point(0.0, 0.0), new Point(3.0, 1.0));
 ```
  ![Screenshot](images/bottom_partial_adj.png)
 - Edge Cases checking for NaN and Invalid Rectangles are executed.
